@@ -20,4 +20,15 @@ public class ProdutoCompleto {
         produtos.add(produto);
         formatos.add(formato);
     }
+
+    public void avancaPosicao(int posOrigem, int posDestino) {
+        produtos.set(posDestino, produtos.get(posOrigem));
+        formatos.set(posDestino, formatos.get(posOrigem));
+
+    }
+
+    public void set(int posDestino, ProdutoPadrao p, Formatacao f) {
+        produtos.set(posDestino, p);
+        formatos.set(posDestino, f);
+    }
 }

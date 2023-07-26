@@ -5,14 +5,9 @@ public class Decrescente implements IOrdenacao {
         this.ic = ic;
     }
 
-    public void atribui(ICriterio ic) {
-        this.ic = ic;
-    }
-
     public void ordena(ProdutoCompleto pCompleto, int pos1, int pos2) {
-        if (ic.compara(pCompleto.produtos.get(pos1),
-                pCompleto.produtos.get(pos2)) < 0)
-            pCompleto.trocaPosicao(pos1, pos2);
+        if (ic.compara(pCompleto.produtos.get(pos1), pCompleto.produtos.get(pos2)) < 0)
+            pCompleto.avancaPosicao(pos1, pos2);
     }
 
     public int particiona(int ini, int fim, ProdutoCompleto pCompleto) {
@@ -21,39 +16,38 @@ public class Decrescente implements IOrdenacao {
         int j = (fim + 1);
 
         while (true) {
-
             if (ic instanceof Descricao) {
                 do {
-                    j++;
+                    j--;
                     ic.getValor(x);
                 } while (ic.getValor(pCompleto.produtos.get(j)).toString()
                         .compareToIgnoreCase(ic.getValor(x).toString()) < 0);
 
                 do {
-                    i--;
+                    i++;
                 } while (ic.getValor(pCompleto.produtos.get(i)).toString()
                         .compareToIgnoreCase(ic.getValor(x).toString()) > 0);
-
             } else {
                 double z;
                 double y;
                 do {
-                    j++;
+                    j--;
                     z = Double.parseDouble(ic.getValor(pCompleto.produtos.get(j)).toString());
                     y = Double.parseDouble(ic.getValor(x).toString());
                 } while (z < y);
 
                 do {
-                    i--;
-                    z = Double.parseDouble(ic.getValor(pCompleto.produtos.get(j)).toString());
+                    i++;
+                    z = Double.parseDouble(ic.getValor(pCompleto.produtos.get(i)).toString());
                     y = Double.parseDouble(ic.getValor(x).toString());
                 } while (z > y);
             }
 
-            if (i > j) {
+            if (i < j) {
                 pCompleto.trocaPosicao(i, j);
             } else
                 return j;
         }
     }
+
 }

@@ -5,13 +5,9 @@ public class Crescente implements IOrdenacao {
         this.ic = ic;
     }
 
-    public void atribui(ICriterio ic) {
-        this.ic = ic;
-    }
-
     public void ordena(ProdutoCompleto pCompleto, int pos1, int pos2) {
         if (ic.compara(pCompleto.produtos.get(pos1), pCompleto.produtos.get(pos2)) > 0)
-            pCompleto.trocaPosicao(pos1, pos2);
+            pCompleto.avancaPosicao(pos1, pos2);
     }
 
     public int particiona(int ini, int fim, ProdutoCompleto pCompleto) {
@@ -44,7 +40,7 @@ public class Crescente implements IOrdenacao {
 
                 do {
                     i++;
-                    z = Double.parseDouble(ic.getValor(pCompleto.produtos.get(j)).toString());
+                    z = Double.parseDouble(ic.getValor(pCompleto.produtos.get(i)).toString());
                     y = Double.parseDouble(ic.getValor(x).toString());
                 } while (z < y);
             }
