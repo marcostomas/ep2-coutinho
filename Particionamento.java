@@ -1,61 +1,65 @@
-import java.util.*;
+// import java.util.*;
 
-public class Particionamento {
-    public static <T> int particiona(int ini, int fim, List<ProdutoPadrao> produtos, String criterio) {
+// public class Particionamento {
 
-        Produto x = produtos.get(ini);
-        int i = (ini - 1);
-        int j = (fim + 1);
+// public static int particiona(int ini, int fim, List<ProdutoPadrao> produtos,
+// ProdutoCompleto pCompleto) {
 
-        while (true) {
+// Produto x = produtos.get(ini);
+// int i = (ini - 1);
+// int j = (fim + 1);
 
-            if (criterio.equals(GeradorDeRelatorios.CRIT_DESC_CRESC)) {
+// while (true) {
 
-                do {
-                    j--;
+// if (criterio.equals(GeradorDeRelatorios.CRIT_DESC_CRESC)) {
 
-                } while (produtos.get(j).getDescricao().compareToIgnoreCase(x.getDescricao()) > 0);
+// do {
+// j--;
 
-                do {
-                    i++;
+// } while (produtos.get(j).getDescricao().compareToIgnoreCase(x.getDescricao())
+// > 0);
 
-                } while (produtos.get(i).getDescricao().compareToIgnoreCase(x.getDescricao()) < 0);
-            } else if (criterio.equals(GeradorDeRelatorios.CRIT_PRECO_CRESC)) {
+// do {
+// i++;
 
-                do {
-                    j--;
+// } while (produtos.get(i).getDescricao().compareToIgnoreCase(x.getDescricao())
+// < 0);
+// } else if (criterio.equals(GeradorDeRelatorios.CRIT_PRECO_CRESC)) {
 
-                } while (produtos.get(j).getPreco() > x.getPreco());
+// do {
+// j--;
 
-                do {
-                    i++;
+// } while (produtos.get(j).getPreco() > x.getPreco());
 
-                } while (produtos.get(i).getPreco() < x.getPreco());
-            }
+// do {
+// i++;
 
-            else if (criterio.equals(GeradorDeRelatorios.CRIT_ESTOQUE_CRESC)) {
+// } while (produtos.get(i).getPreco() < x.getPreco());
+// }
 
-                do {
-                    j--;
+// else if (criterio.equals(GeradorDeRelatorios.CRIT_ESTOQUE_CRESC)) {
 
-                } while (produtos.get(j).getQtdEstoque() > x.getQtdEstoque());
+// do {
+// j--;
 
-                do {
-                    i++;
+// } while (produtos.get(j).getQtdEstoque() > x.getQtdEstoque());
 
-                } while (produtos.get(i).getQtdEstoque() < x.getQtdEstoque());
+// do {
+// i++;
 
-            } else {
+// } while (produtos.get(i).getQtdEstoque() < x.getQtdEstoque());
 
-                throw new RuntimeException("Criterio invalido!");
-            }
+// } else {
 
-            if (i < j) {
-                ProdutoPadrao temp = produtos.get(i);
-                produtos.set(i, produtos.get(j));
-                produtos.set(j, temp);
-            } else
-                return j;
-        }
-    }
-}
+// throw new RuntimeException("Criterio invalido!");
+// }
+
+// if (i < j) {
+// ProdutoPadrao temp = produtos.get(i);
+// produtos.set(i, produtos.get(j));
+// produtos.set(j, temp);
+// } else
+// return j;
+// }
+// }
+// }

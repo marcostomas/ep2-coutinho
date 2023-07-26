@@ -6,4 +6,8 @@ public class Preco implements ICriterio {
             return 0;
         return 1;
     }
+
+    public Object getValor(ProdutoPadrao i) {
+        return i.getPreco();
+    }
 }

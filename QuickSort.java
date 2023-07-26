@@ -1,30 +1,21 @@
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.List;
+public class QuickSort implements IAlgoritmo {
+    private IOrdenacao tipoOrdem;
 
-public class QuickSort {
-    // public <K, V> void order(int ini, int fim, List<ProdutoPadrao> produtos,
-    // String criterio) {
-    // if (ini < fim) {
-    // int q = Particionamento.particiona(ini, fim, produtos, criterio);
-    // order(ini, q, produtos, criterio);
-    // order(q + 1, fim, produtos, criterio);
-    // }
-    // }
-
-    public QuickSort() {
-
+    public QuickSort(IOrdenacao tipoOrdem) {
+        this.tipoOrdem = tipoOrdem;
     }
 
-    public <K, V> void ordena(Map<K, V> produtos, int ini, int fim) {
-        List<K> produtosArr = new ArrayList<>();
+    public void atribui(IOrdenacao tipoOrdem) {
+        this.tipoOrdem = tipoOrdem;
+    }
+
+    public void ordena(int ini, int fim, ProdutoCompleto pCompleto) {
 
         if (ini < fim) {
-
-            produtos.
-            int q = Particionamento.particiona(ini, fim, produtos, criterio);
-            ordena(produtos, ini, q);
-            ordena(produtos, q + 1, fim);
+            // int q = Particionamento.particiona(ini, fim, produtos, criterio);
+            int q = tipoOrdem.particiona(ini, fim, pCompleto);
+            ordena(ini, q, pCompleto);
+            ordena(q + 1, fim, pCompleto);
         }
     }
 

@@ -38,16 +38,86 @@ public class Main {
         // ou 'substring'
         // args[4] (opcional, depende do escolhido em args[3]) == '5' ou 'Livros' ou
         // '10-15' ou 'N-Gage'
-        if (args[1] == "quick") {
-        } else if (args[1] == "insertion") {
+        IAlgoritmo algoritmo;
+        IOrdenacao ordem;
+        ICriterio criterio;
+
+        if (args[2].contains("preco")) {
+            criterio = new Preco();
+        } else if (args[2].contains("estoque")) {
+            criterio = new QuantidadeEstoque();
+        } else {
+            criterio = new Descricao();
         }
 
-        // GeradorDeRelatorios gdr = new GeradorDeRelatorios(produtos, args[1], args[2],
-        // args[3], args[4], formato);
+        if (args[2].contains("_c")) {
+            ordem = new Crescente(criterio);
+        } else {
+            ordem = new Decrescente(criterio);
+        }
 
-        // Map<ProdutoPadrao, Formatacao> produtosOrdenados =
-        // cProdutos.carregarProdutos();
+        if (args[1] == "quick") {
+            algoritmo = new QuickSort(ordem);
+        } else {
+            algoritmo = new InsertionSort(ordem);
+        }
 
+        // if (args[1] == "quick") {
+        // QuickSort qS = new QuickSort();
+
+        // if (args[2].contains("_c")) {
+        // Crescente c = new Crescente();
+        // qS.atribui(c);
+
+        // if (args[2].contains("preco"))
+        // c.atribui(new Preco());
+        // else if (args[2].contains("estoque"))
+        // c.atribui(new QuantidadeEstoque());
+
+        // else if (args[2].contains("descricao"))
+        // c.atribui(new Descricao());
+
+        // } else if (args[2].contains("_d")) {
+        // Decrescente d = new Decrescente();
+        // qS.atribui(d);
+
+        // if (args[2].contains("preco"))
+        // d.atribui(new Preco());
+        // else if (args[2].contains("estoque"))
+        // d.atribui(new QuantidadeEstoque());
+
+        // else if (args[2].contains("descricao"))
+        // d.atribui(new Descricao());
+        // }
+        // qS.ordena(0, produtos.produtos.size() - 1, produtos);
+
+        // } else if (args[1] == "insertion") {
+        // InsertionSort iS = new InsertionSort();
+
+        // if (args[2].contains("_c")) {
+        // Crescente c = new Crescente();
+        // iS.atribui(c);
+
+        // if (args[2].contains("preco"))
+        // c.atribui(new Preco());
+        // else if (args[2].contains("estoque"))
+        // c.atribui(new QuantidadeEstoque());
+        // else if (args[2].contains("descricao"))
+        // c.atribui(new Descricao());
+
+        // } else if (args[2].contains("_d")) {
+        // Decrescente d = new Decrescente();
+        // iS.atribui(d);
+
+        // if (args[2].contains("preco"))
+        // d.atribui(new Preco());
+        // else if (args[2].contains("estoque"))
+        // d.atribui(new QuantidadeEstoque());
+        // else if (args[2].contains("descricao"))
+        // d.atribui(new Descricao());
+        // }
+
+        algoritmo.ordena(0, produtos.produtos.size() - 1, produtos);
         gdr.gerarRelatorioOrdenado(produtos, "saida.html");
     }
 }
