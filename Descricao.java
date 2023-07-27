@@ -1,6 +1,6 @@
 public class Descricao implements ICriterio {
     public int compara(ProdutoPadrao pUm, ProdutoPadrao pDois) {
-        return pUm.getDescricao().compareTo(pDois.getDescricao());
+        return pUm.getDescricao().compareToIgnoreCase(pDois.getDescricao());
     }
 
     public Object getValor(ProdutoPadrao i) {

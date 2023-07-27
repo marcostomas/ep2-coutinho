@@ -21,9 +21,9 @@ public class ProdutoCompleto {
         formatos.add(formato);
     }
 
-    public void avancaPosicao(int posOrigem, int posDestino) {
-        produtos.set(posDestino, produtos.get(posOrigem));
-        formatos.set(posDestino, formatos.get(posOrigem));
+    public void avancaPosicao(int pos) {
+        produtos.set(pos + 1, produtos.get(pos));
+        formatos.set(pos + 1, formatos.get(pos));
 
     }
 

@@ -79,7 +79,7 @@ public class GeradorDeRelatorios implements IGeradorDeRelatorios {
 
 			out.close();
 		} catch (Exception e) {
-			System.out.println("ERRRO NO ARQUIVO DE SAÍDA" + e.getMessage());
+			System.out.println("ERRRO NO ARQUIVO DE SAIDA" + e.getMessage());
 		}
 	}
 }

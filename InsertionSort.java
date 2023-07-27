@@ -7,16 +7,19 @@ public class InsertionSort implements IAlgoritmo {
 
     public void ordena(int ini, int fim, ProdutoCompleto pCompleto) {
         for (int i = ini; i <= fim; i++) {
-            ProdutoPadrao x = pCompleto.produtos.get(i);
-            Formatacao y = pCompleto.formatos.get(i);
+            ProdutoPadrao key = pCompleto.produtos.get(i);
+            Formatacao key_formato = pCompleto.formatos.get(i);
 
             int j = (i - 1);
 
             while (j >= ini) {
-                tipoOrdem.ordena(pCompleto, i, j);
+                if( (tipoOrdem.ordena(pCompleto, key, j)) == false){
+                    break;
+                }
+                System.out.println("Avanca");
                 j--;
             }
-            pCompleto.set(j + 1, x, y);
+            pCompleto.set(j + 1, key, key_formato);
         }
     }
 }

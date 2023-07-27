@@ -22,7 +22,6 @@ public class CarregaProdutos {
         ProdutoCompleto pCompleto = new ProdutoCompleto();
 
         try (BufferedReader br = new BufferedReader(new FileReader(this.path))) {
-
             String line = br.readLine();
             line = br.readLine();// Para pular a primeira linha do arquivo, que contém os cabeçalhos
 

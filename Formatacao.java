@@ -24,6 +24,6 @@ public class Formatacao {
     }
 
     public String formataParaImpressao() {
-        return "NEGRITO: " + getNegrito() + " ITÁLICO: " + getItalico() + " COR: " + getCor();
+        return "NEGRITO: " + getNegrito() + " ITALICO: " + getItalico() + " COR: " + getCor();
     }
 }
