@@ -1,4 +1,4 @@
-public class Formatacao extends FormatacaoDecorator {
+public class Formatacao {
     private boolean ehNegrito;
     private boolean ehItalico;
     private String corLinha;
