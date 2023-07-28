@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import models.Formatacao;
+import models.ProdutoCompleto;
+import models.ProdutoPadrao;
+
 public class CarregaProdutos {
 
     String path;

@@ -1,3 +1,8 @@
+package criterios;
+
+import interfaces.ICriterio;
+import models.ProdutoPadrao;
+
 public class Preco implements ICriterio {
     public int compara(ProdutoPadrao pUm, ProdutoPadrao pDois) {
         if (pUm.getPreco() < pDois.getPreco())

@@ -1,5 +1,12 @@
 import java.io.*;
 
+import algoritmos.*;
+import criterios.*;
+import filtros.*;
+import interfaces.*;
+import ordenacao.*;
+import models.ProdutoCompleto;
+
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {

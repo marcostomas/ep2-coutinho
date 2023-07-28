@@ -1,4 +1,11 @@
+package filtros;
+
 import java.util.*;
+
+import interfaces.IFiltragem;
+import models.Formatacao;
+import models.ProdutoCompleto;
+import models.ProdutoPadrao;
 
 public class Substring implements IFiltragem {
 

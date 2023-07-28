@@ -1,11 +1,17 @@
+package filtros;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class CategoriaIgual implements IFiltragem {
+import interfaces.IFiltragem;
+import models.Formatacao;
+import models.ProdutoCompleto;
+import models.ProdutoPadrao;
 
-    String match;
+public class EstoqueMenorIgual implements IFiltragem {
+    int match;
 
-    public CategoriaIgual(String match) {
+    public EstoqueMenorIgual(int match) {
         this.match = match;
     }
 
@@ -23,7 +29,7 @@ public class CategoriaIgual implements IFiltragem {
             p = itP.next();
             f = itF.next();
 
-            if (p.getCategoria().equals(match)) {
+            if (p.getQtdEstoque() <= match) {
                 produtosFiltrados.add(p);
                 formatosFiltrados.add(f);
             }

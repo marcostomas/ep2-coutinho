@@ -1,3 +1,5 @@
+package models;
+
 public class Formatacao {
     private boolean ehNegrito;
     private boolean ehItalico;

@@ -1,3 +1,8 @@
+package algoritmos;
+
+import interfaces.*;
+import models.ProdutoCompleto;
+
 public class QuickSort implements IAlgoritmo {
     private IOrdenacao tipoOrdem;
 

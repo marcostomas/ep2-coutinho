@@ -1,6 +1,9 @@
 import java.io.PrintWriter;
 import java.util.*;
 
+import interfaces.IGeradorDeRelatorios;
+import models.*;
+
 public class GeradorDeRelatorios implements IGeradorDeRelatorios {
 	public void debug(int total, String argFiltro) {
 

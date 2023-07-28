@@ -1,3 +1,9 @@
+package ordenacao;
+
+import criterios.Descricao;
+import interfaces.*;
+import models.*;
+
 public class Decrescente implements IOrdenacao {
     private ICriterio criterio;
 
@@ -5,20 +11,19 @@ public class Decrescente implements IOrdenacao {
         this.criterio = criterio;
     }
 
-    //método usado pelo InsertionSort.java
+    // método usado pelo InsertionSort.java
     public boolean ordena(ProdutoCompleto pCompleto, ProdutoPadrao key, int pos) {
         ProdutoPadrao compare_To = pCompleto.produtos.get(pos);
 
-        if ( (criterio.compara(key, compare_To)) > 0){
+        if ((criterio.compara(key, compare_To)) > 0) {
             pCompleto.avancaPosicao(pos);
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
 
-    //método usado pelo QuickSort.java
+    // método usado pelo QuickSort.java
     public int particiona(int ini, int fim, ProdutoCompleto pCompleto) {
         ProdutoPadrao x = pCompleto.produtos.get(ini);
         int i = (ini - 1);

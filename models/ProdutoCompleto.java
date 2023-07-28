@@ -1,9 +1,11 @@
+package models;
+
 import java.util.ArrayList;
 
 public class ProdutoCompleto {
 
-    ArrayList<ProdutoPadrao> produtos = new ArrayList<>();
-    ArrayList<Formatacao> formatos = new ArrayList<>();
+    public ArrayList<ProdutoPadrao> produtos = new ArrayList<>();
+    public ArrayList<Formatacao> formatos = new ArrayList<>();
 
     public void trocaPosicao(int posOrigem, int posDestino) {
         ProdutoPadrao auxP = produtos.get(posDestino);

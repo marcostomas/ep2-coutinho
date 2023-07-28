@@ -1,3 +1,8 @@
+package algoritmos;
+
+import models.*;
+import interfaces.*;
+
 public class InsertionSort implements IAlgoritmo {
     private IOrdenacao tipoOrdem;
 
