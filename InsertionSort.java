@@ -13,10 +13,9 @@ public class InsertionSort implements IAlgoritmo {
             int j = (i - 1);
 
             while (j >= ini) {
-                if( (tipoOrdem.ordena(pCompleto, key, j)) == false){
+                if ((tipoOrdem.ordena(pCompleto, key, j)) == false) {
                     break;
                 }
-                System.out.println("Avanca");
                 j--;
             }
             pCompleto.set(j + 1, key, key_formato);

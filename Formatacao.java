@@ -1,6 +1,4 @@
-import java.text.NumberFormat;
-
-public class Formatacao {
+public class Formatacao extends FormatacaoDecorator {
     private boolean ehNegrito;
     private boolean ehItalico;
     private String corLinha;

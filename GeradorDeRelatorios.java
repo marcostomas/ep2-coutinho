@@ -2,22 +2,6 @@ import java.io.PrintWriter;
 import java.util.*;
 
 public class GeradorDeRelatorios implements IGeradorDeRelatorios {
-
-	// public static final String CRIT_DESC_CRESC = "descricao_c";
-	// public static final String CRIT_PRECO_CRESC = "preco_c";
-	// public static final String CRIT_ESTOQUE_CRESC = "estoque_c";
-	// public static final String FILTRO_TODOS = "todos";
-	// public static final String FILTRO_ESTOQUE_MENOR_OU_IQUAL_A =
-	// "estoque_menor_igual";
-	// public static final String FILTRO_CATEGORIA_IGUAL_A = "categoria_igual";
-	// // operador bit a bit "ou" pode ser usado para combinar mais de
-	// // um estilo de formatacao simultaneamente (veja como no main)
-	// public static final int FORMATO_PADRAO = 0b0000;
-	// public static final int FORMATO_NEGRITO = 0b0001;
-	// public static final int FORMATO_ITALICO = 0b0010;
-	// private String algoritmo, filtro, argFiltro;
-	// private OrdenationStrategy order_method;
-
 	public void debug(int total, String argFiltro) {
 
 		System.out.println("Gerando relatório para array contendo " + total + " produto(s)");
@@ -42,9 +26,6 @@ public class GeradorDeRelatorios implements IGeradorDeRelatorios {
 				ProdutoPadrao proxP = itP.next();
 				Formatacao proxF = itF.next();
 
-				System.out.println("PRODUTO: " + proxP.formataParaImpressao());
-				System.out.println("FORMATAÇÃO:  " + proxF.formataParaImpressao());
-
 				out.print("<li>");
 				if (proxF.getItalico() && proxF.getNegrito())
 					out.print(
@@ -64,12 +45,6 @@ public class GeradorDeRelatorios implements IGeradorDeRelatorios {
 
 				out.println("</li>");
 				count++;
-				System.out.println("Linhas geradas até agora: " + count);
-
-				System.out.println("");
-				System.out.println("");
-				System.out.println("");
-
 			}
 
 			out.println("</ul>");

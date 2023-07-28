@@ -27,16 +27,10 @@ public class Main {
         ProdutoCompleto produtos = cProdutos.carregarProdutos();
         GeradorDeRelatorios gdr = new GeradorDeRelatorios();
 
-        // args[1] == 'quick' ou 'insertion'
-        // args[2] == 'preco_c' ou 'descricao_c' ou 'estoque_c' ou 'preco_d' ou
-        // 'descricao_d' ou 'estoque_d'
-        // args[3] == 'todos' ou 'estoque_menor_igual' ou 'categoria_igual' ou 'entre'
-        // ou 'substring'
-        // args[4] (opcional, depende do escolhido em args[3]) == '5' ou 'Livros' ou
-        // '10-15' ou 'N-Gage'
         IAlgoritmo algoritmo;
         IOrdenacao ordem;
         ICriterio criterio;
+        IFiltragem filtro;
 
         if (args[2].contains("preco")) {
             criterio = new Preco();
@@ -52,6 +46,25 @@ public class Main {
             ordem = new Decrescente(criterio);
         }
 
+        if (args[3].contains("categoria_igual")) {
+            filtro = new CategoriaIgual(args[4]);
+
+        } else if (args[3].contains("estoque_menor_igual")) {
+            filtro = new EstoqueMenorIgual(Integer.parseInt(args[4]));
+
+        } else if (args[3].contains("entre")) {
+            String[] valores = args[4].split("-");
+
+            double valor1 = Double.parseDouble(valores[0]);
+            double valor2 = Double.parseDouble(valores[1]);
+
+            filtro = new Intervalo(valor1, valor2);
+        } else if (args[3].contains("substring")) {
+            filtro = new Substring(args[4]);
+        } else {
+            filtro = new Todos();
+        }
+
         if (args[1] == "quick") {
             algoritmo = new QuickSort(ordem);
         } else {
@@ -60,6 +73,8 @@ public class Main {
 
         algoritmo.ordena(0, produtos.produtos.size() - 1, produtos);
 
-        gdr.gerarRelatorioOrdenado(produtos, "saida.html");
+        ProdutoCompleto pCompletoFiltrado = filtro.filtra(produtos);
+
+        gdr.gerarRelatorioOrdenado(pCompletoFiltrado, "saida.html");
     }
 }

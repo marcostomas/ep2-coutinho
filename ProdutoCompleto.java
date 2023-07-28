@@ -31,4 +31,9 @@ public class ProdutoCompleto {
         produtos.set(posDestino, p);
         formatos.set(posDestino, f);
     }
+
+    public void remove(ProdutoPadrao p, Formatacao f) {
+        produtos.remove(p);
+        formatos.remove(f);
+    }
 }
